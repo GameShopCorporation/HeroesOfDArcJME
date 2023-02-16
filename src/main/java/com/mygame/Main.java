@@ -13,6 +13,10 @@ import com.jme3.scene.VertexBuffer.Type;
 import com.jme3.scene.shape.Box;
 import com.jme3.system.AppSettings;
 import com.jme3.util.BufferUtils;
+import com.models.Flag;
+import com.models.FlagPanel;
+import com.poly.CurrencyMesh;
+import com.poly.LinePathing;
 
 /**
  * This is the Main Class of your Game. You should only do initialization here.
@@ -41,73 +45,75 @@ public class Main extends SimpleApplication {
 //
 //        rootNode.attachChild(geom);
 
-Mesh mesh = new Mesh();
+//Mesh mesh = new Mesh();
+//
+//Node node = new Node("node");
+//
+//Vector3f [] vertices = new Vector3f[4];
+//vertices[0] = new Vector3f(0,0,0);
+//vertices[1] = new Vector3f(3,0,0);
+//vertices[2] = new Vector3f(0,3,0);
+//vertices[3] = new Vector3f(3,3,0);
+//
+//Vector2f[] texCoord = new Vector2f[4];
+//texCoord[0] = new Vector2f(0,0);
+//texCoord[1] = new Vector2f(1,0);
+//texCoord[2] = new Vector2f(0,1);
+//texCoord[3] = new Vector2f(1,1);
+//
+//int [] indexes = { 2,0,1, 1,3,2 };
+//
+//mesh.setBuffer(Type.Position, 3, BufferUtils.createFloatBuffer(vertices));
+//mesh.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(texCoord));
+//mesh.setBuffer(Type.Index,    3, BufferUtils.createIntBuffer(indexes));
+//mesh.updateBound();
+//
+//Geometry geo = new Geometry("OurMesh", mesh); // using our custom mesh object
+//Material mat = new Material(assetManager,
+//    "Common/MatDefs/Misc/Unshaded.j3md");
+//mat.setColor("Color", ColorRGBA.Blue);
+//geo.setMaterial(mat);
+//node.attachChild(geo);
+//rootNode.attachChild(node);
+//
+//Mesh mesh1 = new Mesh();
+//
+//Node node1 = new Node("node1");
+//
+//Vector3f [] vertices1 = new Vector3f[4];
+//vertices1[0] = new Vector3f(0,0,0);
+//vertices1[1] = new Vector3f(1,0,0);
+//vertices1[2] = new Vector3f(0,1,0);
+//vertices1[3] = new Vector3f(1,1,0);
+//
+//Vector2f[] texCoord1 = new Vector2f[4];
+//texCoord1[0] = new Vector2f(0,0);
+//texCoord1[1] = new Vector2f(1,0);
+//texCoord1[2] = new Vector2f(0,1);
+//texCoord1[3] = new Vector2f(1,1);
+//
+//int [] indexes1 = { 2,0,1, 1,3,2 };
+//
+//mesh1.setBuffer(Type.Position, 3, BufferUtils.createFloatBuffer(vertices1));
+//mesh1.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(texCoord1));
+//mesh1.setBuffer(Type.Index,    3, BufferUtils.createIntBuffer(indexes1));
+//mesh1.updateBound();
+//
+//Geometry geo1 = new Geometry("OurMesh", mesh1); // using our custom mesh object
+//Material mat1 = new Material(assetManager,
+//    "Common/MatDefs/Misc/Unshaded.j3md");
+//mat1.setColor("Color", ColorRGBA.Red);
+//geo1.setMaterial(mat1);
+//geo1.move(0, 0, 0.01f);
+//
+//node.attachChild(geo1);
 
-Node node = new Node("node");
+//CurrencyMesh currencyMesh = new CurrencyMesh(this);
+//LinePathing lines = new LinePathing(0);
 
-Vector3f [] vertices = new Vector3f[4];
-vertices[0] = new Vector3f(0,0,0);
-vertices[1] = new Vector3f(3,0,0);
-vertices[2] = new Vector3f(0,3,0);
-vertices[3] = new Vector3f(3,3,0);
+//FlagPanel flag = new FlagPanel(this);
 
-Vector2f[] texCoord = new Vector2f[4];
-texCoord[0] = new Vector2f(0,0);
-texCoord[1] = new Vector2f(1,0);
-texCoord[2] = new Vector2f(0,1);
-texCoord[3] = new Vector2f(1,1);
-
-int [] indexes = { 2,0,1, 1,3,2 };
-
-mesh.setBuffer(Type.Position, 3, BufferUtils.createFloatBuffer(vertices));
-mesh.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(texCoord));
-mesh.setBuffer(Type.Index,    3, BufferUtils.createIntBuffer(indexes));
-mesh.updateBound();
-
-Geometry geo = new Geometry("OurMesh", mesh); // using our custom mesh object
-Material mat = new Material(assetManager,
-    "Common/MatDefs/Misc/Unshaded.j3md");
-mat.setColor("Color", ColorRGBA.Blue);
-geo.setMaterial(mat);
-node.attachChild(geo);
-rootNode.attachChild(node);
-
-Mesh mesh1 = new Mesh();
-
-Node node1 = new Node("node1");
-
-Vector3f [] vertices1 = new Vector3f[4];
-vertices1[0] = new Vector3f(0,0,0);
-vertices1[1] = new Vector3f(1,0,0);
-vertices1[2] = new Vector3f(0,1,0);
-vertices1[3] = new Vector3f(1,1,0);
-
-Vector2f[] texCoord1 = new Vector2f[4];
-texCoord1[0] = new Vector2f(0,0);
-texCoord1[1] = new Vector2f(1,0);
-texCoord1[2] = new Vector2f(0,1);
-texCoord1[3] = new Vector2f(1,1);
-
-int [] indexes1 = { 2,0,1, 1,3,2 };
-
-mesh1.setBuffer(Type.Position, 3, BufferUtils.createFloatBuffer(vertices1));
-mesh1.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(texCoord1));
-mesh1.setBuffer(Type.Index,    3, BufferUtils.createIntBuffer(indexes1));
-mesh1.updateBound();
-
-Geometry geo1 = new Geometry("OurMesh", mesh1); // using our custom mesh object
-Material mat1 = new Material(assetManager,
-    "Common/MatDefs/Misc/Unshaded.j3md");
-mat1.setColor("Color", ColorRGBA.Red);
-geo1.setMaterial(mat1);
-geo1.move(0, 0, 0.01f);
-
-node.attachChild(geo1);
-
-
-
-
-
+Flag flag = new Flag(this);
     }
 
 

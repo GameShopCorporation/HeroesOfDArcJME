@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.models;
+package com.poly;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.material.Material;
@@ -28,13 +28,14 @@ public class Poly {
     public ArrayList<Integer> indexes;
     public Mesh mesh ;
     public Node node ;
+    public ColorRGBA color;
     
-    public Poly(SimpleApplication app, ArrayList<Vector3f> vertices, ArrayList<Vector2f> texCoord, ArrayList<Integer> indexes){
+    public Poly(SimpleApplication app, ArrayList<Vector3f> vertices, ArrayList<Vector2f> texCoord, ArrayList<Integer> indexes, ColorRGBA color){
     
         
  mesh = new Mesh();
 
- node = new Node("node");
+ this.node = new Node("node");
 
  
  this.vertices = new ArrayList<Vector3f>() ;
@@ -53,7 +54,8 @@ updateRender();
 Geometry geo = new Geometry("OurMesh", mesh); // using our custom mesh object
 Material mat = new Material(app.getAssetManager(),
     "Common/MatDefs/Misc/Unshaded.j3md");
-mat.setColor("Color", ColorRGBA.Blue);
+mat.setColor("Color", color);
+
 geo.setMaterial(mat);
 node.attachChild(geo);
 app.getRootNode().attachChild(node);

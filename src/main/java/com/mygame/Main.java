@@ -1,6 +1,7 @@
 package com.mygame;
 
 import com.jme3.app.SimpleApplication;
+import com.jme3.app.state.VideoRecorderAppState;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector2f;
@@ -15,8 +16,10 @@ import com.jme3.system.AppSettings;
 import com.jme3.util.BufferUtils;
 import com.models.Flag;
 import com.models.FlagPanel;
+import com.models.Star;
 import com.poly.CurrencyMesh;
 import com.poly.LinePathing;
+import java.io.File;
 
 /**
  * This is the Main Class of your Game. You should only do initialization here.
@@ -29,7 +32,11 @@ public class Main extends SimpleApplication {
         Main app = new Main();
         AppSettings settings = new AppSettings(true);
         settings.setResolution(1920,1080);
-        settings.setFullscreen(false);
+        settings.setFullscreen(true);
+        settings.setFrameRate(120);
+        
+        
+        
         app.setSettings(settings);
         app.start();
     }
@@ -114,6 +121,10 @@ public class Main extends SimpleApplication {
 //FlagPanel flag = new FlagPanel(this);
 
 Flag flag = new Flag(this);
+
+//Star star = new Star(this);
+//stateManager.attach(new VideoRecorderAppState()); //start recording
+
     }
 
 
